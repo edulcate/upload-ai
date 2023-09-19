@@ -132,14 +132,14 @@ export function VideoInputForm(props: VideoInputFormProps) {
 		>
 			<label
 				htmlFor="video"
-				className='relative border flex rounded-md aspect-video cursor-pointer border-dashed text-small flex-col gap-2 justify-center items-center text-muted-foreground transition hover:bg-primary/5 hover:border-emerald-400 hover:border-solid'
+				className='relative border flex rounded-md aspect-video cursor-pointer border-dashed text-primary text-small flex-col gap-2 justify-center items-center transition hover:bg-primary/5 hover:border-emerald-400 hover:border-solid data-[success=true]:border-solid data-[success=true]:border-input'
+				data-success={setVideoFile !== null}
 			>
 				{previewURL ? (
 					<video
 						src={previewURL}
 						controls={false}
-						className="absolute inset-0 pointer-events-none rounded-md"
-
+						className="absolute inset-0 pointer-events-none rounded-md aspect-video"
 					>
 
 					</video>
@@ -165,12 +165,12 @@ export function VideoInputForm(props: VideoInputFormProps) {
 			<Separator />
 
 			<div className='space-y-2'>
-				<Label htmlFor='transcriptionPrompt'>Prompt de transcrição</Label>
+				<Label htmlFor='transcriptionPrompt' className='text-primary'>Prompt de transcrição</Label>
 				<Textarea
 					disabled={status !== 'waiting'}
 					ref={promptInputRef}
 					id='transcriptionPrompt'
-					className='h-20 leading-relaxed resize-none transition hover:border-emerald-300 focus:border-emerald-400'
+					className='h-20 leading-relaxed resize-none text-primary transition hover:border-emerald-300 focus:border-emerald-400'
 					placeholder='Inclua palavras-chave mencionadas no vídeo separadas por vírgula (,)'
 				>
 				</Textarea>

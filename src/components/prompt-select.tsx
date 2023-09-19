@@ -38,12 +38,14 @@ export const PromptSelect = (props: PromptSelectProps) => {
 			
 		>
 			<SelectTrigger
-				className="transition hover:border-emerald-400 active:border-emerald-400"
+				className="text-primary transition hover:border-emerald-400 active:border-emerald-400"
 			>
 				<SelectValue placeholder='Selecione um prompt' />
 			</SelectTrigger>
 
-			<SelectContent>
+			<SelectContent
+				className='border-input'
+			>
 				{prompts?.map(prompt => {
 					return (
 						<SelectItem key={prompt.id} value={prompt.id}>{prompt.title}</SelectItem>
