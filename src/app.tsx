@@ -20,6 +20,10 @@ export function App() {
 		setVideoId(videoId);
 	}
 
+	const handleTemperatureChange = (value: number[]) => {
+		setTemperature(value[0]);
+	}
+
 	const {
 		input,
 		setInput,
@@ -28,7 +32,7 @@ export function App() {
 		completion,
 		isLoading
 	} = useCompletion({
-		api: 'http://192.168.100.36:3333/ai/complete',
+		api: 'http://localhost:3333/ai/complete',
 		body: {
 			videoId,
 			temperature
@@ -86,7 +90,7 @@ export function App() {
 									max={1}
 									step={.1}
 									value={[temperature]}
-									onValueChange={value => setTemperature(value[0])}
+									onValueChange={handleTemperatureChange}
 									className="transition hover:border-emerald-300 focus:border-emerald-400"
 								/>
 								<small className='text-muted-foreground'>{temperature}</small>
