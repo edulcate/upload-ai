@@ -26,7 +26,6 @@ export function VideoInputForm(props: VideoInputFormProps) {
 	const [videoFile, setVideoFile] = useState<File | null>(null);
 	const promptInputRef = useRef<HTMLTextAreaElement | null>(null);
 	const [status, setStatus] = useState<Status>('waiting');
-	const [videoId, setVideoId] = useState<string | null>(null);
 
 	const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
 		const { files } = event.currentTarget;
