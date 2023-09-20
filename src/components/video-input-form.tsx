@@ -110,6 +110,12 @@ export function VideoInputForm(props: VideoInputFormProps) {
 
 		const response = await api.post('/videos', data);
 
+		if (response.status !== 200) {
+			alert('Houve um erro ao enviar o vídeo. Tente novamente');
+			setStatus('waiting');
+			return;
+		}
+
 		const videoId = response.data.id;
 		props.onVideoChange(videoId);
 
